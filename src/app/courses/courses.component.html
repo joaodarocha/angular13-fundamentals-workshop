@@ -9,17 +9,17 @@
       <mat-card-content>
         <mat-list>
           <mat-list-item
-            *ngFor="let course of courses"
             (click)="selectCourse(course)"
+            *ngFor="let course of courses"
           >
             <h3 matLine>{{ course.title | titlecase }}</h3>
             <p matLine>
               {{ course.description }}
             </p>
             <button
-              mat-icon-button
-              color="warn"
               (click)="deleteCourse(course.id); $event.stopImmediatePropagation()"
+              color="warn"
+              mat-icon-button
             >
               <mat-icon>delete</mat-icon>
             </button>
@@ -40,29 +40,31 @@
         </mat-card-title>
       </mat-card-header>
       <form #form="ngForm">
-      <mat-card-content>
-        <mat-form-field class="full-width">
-          <input
-          matInput
-          placeholder="Title"
-          [(ngModel)]="selectedCourse.title"
-          name="title"
-          required
-          type="text">
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input
-          matInput
-          placeholder="Description"
-          [(ngModel)]="selectedCourse.description"
-          name="description"
-          type="text">
-        </mat-form-field>
-      </mat-card-content>
-      <mat-card-actions>
-        <!-- COURSE ACTIONS -->
-        <button type="button" mat-button (click)="reset()">Cancel</button>
-      </mat-card-actions>
+        <mat-card-content>
+          <mat-form-field class="full-width">
+            <input
+              [value]="selectedCourse.title"
+              matInput
+              name="title"
+              placeholder="Title"
+              required
+              type="text">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input
+              [value]="selectedCourse.description"
+              matInput
+              name="description"
+              placeholder="Description"
+              type="text">
+          </mat-form-field>
+          <mat-slider [value]="selectedCourse.percentComplete" matLine max="100" min="0"></mat-slider>
+          <mat-checkbox [(ngModel)]="selectedCourse.favorite" matLine name="favorite">Favorite</mat-checkbox>
+        </mat-card-content>
+        <mat-card-actions>
+          <!-- COURSE ACTIONS -->
+          <button (click)="reset()" mat-button type="button">Cancel</button>
+        </mat-card-actions>
       </form>
       <hr>
       <pre>{{form.value | json}}</pre>

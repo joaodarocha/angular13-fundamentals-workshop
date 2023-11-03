@@ -32,7 +32,7 @@ export class CoursesComponent implements OnInit {
       title: 'JavaScript The HARDEST PARTS EVER!',
       description: 'Learn the JavaScript like a pro! with Will',
       percentComplete: 26,
-      favorite: true
+      favorite: false
     }
   ];
   selectedCourse = emptyCourse;
