@@ -34,16 +34,16 @@
       <mat-card-header>
         <mat-card-title>
           <span *ngIf="selectedCourse?.id; else elseBlock">
-            {{selectedCourse.title | titlecase}}
+            {{originalTitle | titlecase}}
           </span>
           <ng-template #elseBlock>Select a Course</ng-template>
         </mat-card-title>
       </mat-card-header>
-      <form #form="ngForm">
+      <form #form="ngForm" (submit)="saveCourse(selectedCourse)">
         <mat-card-content>
           <mat-form-field class="full-width">
             <input
-              [value]="selectedCourse.title"
+              [(ngModel)]="selectedCourse.title"
               matInput
               name="title"
               placeholder="Title"
@@ -52,17 +52,19 @@
           </mat-form-field>
           <mat-form-field class="full-width">
             <input
-              [value]="selectedCourse.description"
+              [(ngModel)]="selectedCourse.description"
               matInput
               name="description"
               placeholder="Description"
               type="text">
           </mat-form-field>
-          <mat-slider [value]="selectedCourse.percentComplete" matLine max="100" min="0"></mat-slider>
-          <mat-checkbox [(ngModel)]="selectedCourse.favorite" matLine name="favorite">Favorite</mat-checkbox>
+          <mat-slider [(ngModel)]="selectedCourse.percentComplete" class="full-width" max="100" min="0" name="percentComplete"
+                      thumbLabel></mat-slider>
+          <mat-checkbox [(ngModel)]="selectedCourse.favorite" class="full-width" name="favorite">Favorite</mat-checkbox>
         </mat-card-content>
         <mat-card-actions>
           <!-- COURSE ACTIONS -->
+          <button [disabled]="form.invalid" color="primary" mat-button type="submit">Save</button>
           <button (click)="reset()" mat-button type="button">Cancel</button>
         </mat-card-actions>
       </form>
