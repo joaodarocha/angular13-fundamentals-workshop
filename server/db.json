@@ -6,6 +6,20 @@
       "description": "Learn the fundamentals of Angular 13",
       "percentComplete": 26,
       "favorite": true
+    },
+    {
+      "id": 2,
+      "title": "JavaScript The HARDEST PARTS EVER!",
+      "description": "Learn the JavaScript like a pro! with Will",
+      "percentComplete": 98,
+      "favorite": true
+    },
+    {
+      "id": 7,
+      "title": "Awesome new coding course ",
+      "description": "Don't miss it!",
+      "percentComplete": 21,
+      "favorite": true
     }
   ]
 }
