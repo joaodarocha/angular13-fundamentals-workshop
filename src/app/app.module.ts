@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { CoursesListComponent } from './courses/courses-list/courses-list.component';
 import { CourseDetailsComponent } from './courses/course-details/course-details.component';
+import { LessonsComponent } from './lessons/lessons/lessons.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { CourseDetailsComponent } from './courses/course-details/course-details.
     MaterialModule,
     HttpClientModule,
   ],
-  declarations: [AppComponent, HomeComponent, CoursesComponent, CoursesListComponent, CourseDetailsComponent],
+  declarations: [AppComponent, HomeComponent, CoursesComponent, CoursesListComponent, CourseDetailsComponent, LessonsComponent],
   providers: [],
   bootstrap: [AppComponent],
 })

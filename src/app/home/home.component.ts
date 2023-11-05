@@ -11,11 +11,12 @@ export class HomeComponent implements OnInit {
   lessons = [];
   selectedLesson: any;
 
-  constructor(private lessonsService: LessonsService) {}
+  constructor(private lessonsService: LessonsService) {
+  }
 
   ngOnInit() {
     this.lessons = this.lessonsService.lessons;
-    this.lessons$ = this.lessonsService.lessons$;
+    this.lessons$ = this.lessonsService.allLessons();
   }
 
   selectLesson(lesson) {

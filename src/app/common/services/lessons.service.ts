@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { from } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,4 +17,11 @@ export class LessonsService {
     { title: 'Unit Testing Fundamentals' },
   ];
   lessons$ = from(this.lessons);
+
+  constructor(private http: HttpClient) {
+  }
+
+  allLessons() {
+    return this.http.get('http://localhost:3000/lessons')
+  }
 }
